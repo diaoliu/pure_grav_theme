@@ -1,5 +1,5 @@
 # Pure theme for Grav CMS
 
-[Live Demo](http://wwww.diaoliu.de)
+[Live Demo](http://www.diaoliu.de)
 
 ![Pure Theme screenshot](screenshot.jpg)
