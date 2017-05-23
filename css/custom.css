@@ -1,0 +1,51 @@
+.uk-navbar-nav > li > a {
+    color: #000;
+    line-height: 1;
+}
+
+.uk-table th {
+  cursor: pointer;
+}
+
+.gradient-fog {
+	background: #B993D6;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #8CA6DB, #B993D6);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.text-lighter {
+    font-weight: 300 !important;
+}
+
+.text-larger {
+    font-size: 1.2rem !important;
+}
+
+.line-height-narrow {
+	line-height: 1.2;
+}
+
+.stack {
+  padding-right: 10px;
+}
+
+/* markdown */
+
+.markdown img {
+  float: left;
+  margin-right: 15px;
+}
+
+.markdown i {
+  font-size: 2em;
+}
+
+.markdown h2 {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.markdown ul {
+  list-style: none;
+  padding: 0;
+}

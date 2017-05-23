@@ -1,0 +1,48 @@
+{% extends 'partials/base.html.twig' %}
+{% block content %}
+<div class="uk-container">
+    <div class="uk-flex uk-flex-left uk-flex-wrap">
+        <div class="uk-width-1-2@s uk-padding-tiny">
+            <div class="uk-padding-small uk-light gradient-fog" style="height: 275px;">
+                <div class="uk-inline uk-height-1-1">
+                    <div class="uk-text-uppercase uk-h2 text-lighter">
+                        <b>{{ page.title}}</b><br>
+                        {{ page.header.subtitle }}
+                    </div>
+                    <div class="uk-position-bottom-left uk-visible@s">
+                        <span uk-icon="icon: arrow-down;ratio: 2"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="uk-width-1-2@s uk-padding-tiny">
+            <div class="uk-padding-small uk-background" style="height: 275px;">
+                <div class="uk-text-uppercase line-height-narrow text-larger text-lighter">
+                    <!-- only support English and German -->
+                    {% if grav.language.getActive is same as ('en') %}
+                    <b>contact me</b><br>
+                    currently not employed.
+                    {% else %}
+                    <b>kontaktiere mich</b><br>
+                    derzeit nicht beschäftigt.
+                    {% endif %}
+                </div>
+                <ul class="uk-text-small uk-list">
+                    <li>Gustav-Hickingstr.5, 45127 Essen</li>
+                    <li>t: +49 015770353456</li>
+                    <li>e: <u>diaoliu@gmail.com</u></li>
+                    <hr>
+                    <li><a href="https://www.linkedin.com/in/diaoliu" class="uk-link-reset"><span uk-icon="icon: linkedin"></span> Linkedin</a></li>
+                    <li><a href="https://github.com/Diaoliu/" class="uk-link-reset"><span uk-icon="icon: github"></span> Github</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="uk-width-1-1 uk-padding-tiny">
+            <div class="uk-background markdown uk-padding">
+                {% block cv %}{% endblock %}
+                {{ page.content }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<div class="uk-container">
+    <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+        <div class="uk-navbar-left" style="padding-left: 21px;">
+            <ul class="uk-navbar-nav">
+                <li><a href="/" style="padding-left: 0px; font-size: 1.2rem;"><b>Liu<br>Diao.</b></a></li>
+                {% for p in pages.children %}
+                <li class="uk-visible@m">
+                    <a href="{{ p.url }}">{{ p.title|title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="uk-navbar-right uk-padding-tiny" style="padding-right: 21px;">
+            <ul class="uk-navbar-nav uk-visible@m">
+                <li><a href="/de{{ uri.path }}" class="uk-text-small uk-link-reset">DE</a></li>
+                <li><a href="/en{{ uri.path }}" class="uk-text-small uk-link-reset">EN</a></li>
+                <li><a href="https://github.com/Diaoliu/" class="uk-text-small uk-link-reset"><span uk-icon="icon: github"></span></a></li>
+            </ul>
+            <a uk-icon="icon: menu; ratio: 1.5" class="uk-hidden@m uk-link-reset" uk-toggle="target: #offcanvas-nav"></a>
+        </div>
+    </nav>
+</div>

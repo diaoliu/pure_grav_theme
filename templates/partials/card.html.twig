@@ -1,0 +1,18 @@
+<div class="uk-width-{{ card.width }}@s uk-padding-tiny card {% if card.image %}uk-visible@m{% endif %}">
+    <div class="{{ card.background }} uk-padding-small" height="{{ card.height }}">
+        {% if card.image %}
+            <img src="{{ page.media[card.image].url }}" alt="" uk-cover>
+        {% elseif card.title_large %}
+            <div class="uk-text-uppercase uk-h2 text-lighter">
+                {{ card.title_large }}
+            </div>
+        {% else %}
+            <div class="uk-text-uppercase line-height-narrow text-larger text-lighter">     
+                {% if card.title_up %}{{ card.title_up }}<br>{% endif %}
+                {% if card.title %}<b>{{ card.title }}</b><br>{% endif %}
+                {% if card.title_down %}{{ card.title_down }}{% endif %}
+            </div>
+        {% endif %}
+        {% if card.text %}<p class="text-lighter">{{ card.text }}</p>{% endif %}
+    </div> 
+</div>

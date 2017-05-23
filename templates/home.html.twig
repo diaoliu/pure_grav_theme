@@ -1,0 +1,30 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+<!-- Profile -->
+<div class="uk-container">
+    <div class="uk-padding-tiny">
+        <div class="uk-background-cover uk-background-secondary uk-height-large"
+             style="background-image: url({{ page.media[page.header.introduce_background].url }});">
+            <div class="uk-padding-small uk-light uk-height-1-1">
+                <div class="uk-inline uk-height-1-1 uk-width-1-2@s">
+                    <h2 class="uk-text-uppercase text-lighter">
+                        {{ page.header.introduce }}
+                    </h2>
+                    <div class="uk-position-bottom-left uk-text-uppercase text-lighter text-larger">
+                        <a href="/profile" class="uk-link-reset">profile <span uk-icon="icon: arrow-right;ratio: 1.2"></a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Shanghai and Essen -->
+<div class="uk-container">
+    <div class="uk-flex uk-flex-left uk-flex-wrap" uk-scrollspy="target: >div; cls:uk-animation-fade;delay:100">
+        {% for card in page.header.cards %}
+            {% include 'partials/card.html.twig' with { 'card': card } %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

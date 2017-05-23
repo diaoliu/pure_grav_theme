@@ -1,0 +1,94 @@
+<div id="modal-caption" uk-modal="center: true">
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-body">
+            <h2 class="uk-modal-title">
+            {% if grav.language.getActive is same as ('en') %}
+            Transcript 
+            {% else %}
+            Leistungen
+            {% endif %}
+            </h2>
+            <table class="uk-table" id="note">
+                <thead>
+                    {% if grav.language.getActive is same as ('en') %}
+                    <tr>
+                        <th data-sort="float">Grade</th>
+                        <th data-sort="string">Name of exam</th>             
+                        <th data-sort="int">Credits</th>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <th data-sort="float">Bewertung</th>
+                        <th data-sort="string">Titel</th>             
+                        <th data-sort="int">Credits</th>
+                    </tr>
+                    {% endif %}
+                    
+                </thead>
+                <tbody>
+                    {% for item in page.header.note %}
+                    <tr>
+                        <td>{{ item.grade|number_format(1) }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.credits }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="offcanvas-nav" uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar">
+
+        <ul class="uk-nav uk-nav-default">
+            <li class="uk-nav-header">Pages</li>
+            {% for p in pages.children %}
+            <li>
+                <a href="{{ p.url }}">{{ p.title|title }}</a>
+            </li>
+            {% endfor %}
+            <li class="uk-nav-header">Language</li>
+            <li><a href="/en{{ uri.path }}">English</a></li>
+            <li><a href="/de{{ uri.path }}">Deutsch</a></li>
+            <li class="uk-nav-header">Contact</li>
+            <li>t: +49 015770353456</li>
+            <li>e: diaoliu@gmail.com</li>
+            <li class="uk-nav-divider"></li>
+            <li><a href="https://www.linkedin.com/in/diaoliu" class="uk-link-reset"><span uk-icon="icon: linkedin"></span> Linkedin</a></li>
+            <li><a href="https://github.com/Diaoliu/" class="uk-link-reset"><span uk-icon="icon: github"></span> Github</a></li>
+        </ul>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    /* sortable note list */
+    var $table = $("#note").stupidtable();
+    var $th_to_sort = $table.find("thead th").eq(0);
+    $th_to_sort.stupidsort();
+    /* get view port height */
+    var viewport = $(window).width();
+    if (viewport < 960 && viewport >= 640) {
+        $(".card, .stack").each(function () {
+            var newClass = $(this).attr('class').replace("uk-width-1-4@s", "uk-width-1-2@s");
+            $(this).attr('class', newClass);
+        });
+    }
+    /* calculate card height */
+    $("div[height]").each(function() {
+        if (viewport >= 960) {
+            var $height = $(this).attr('height');
+            var $width = $(this).width();
+            /* if it is wider card (twice width).*/
+            var height = $height < 1 ? (($width - 45) * $height) : ($width * $height);
+            $(this).css('min-height', height + 'px');
+        } else if (viewport < 960 && viewport >= 640) {
+            $(this).css('min-height', $(this).width() + 'px');
+        } else {
+            $(this).css('min-height', $(this).width() / 2 + 'px');
+        }
+    });
+</script>

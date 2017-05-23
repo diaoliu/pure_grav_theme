@@ -1,0 +1,60 @@
+title: home
+'@extends':
+    type: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          fields: # customized fields here
+            header.introduce:
+              type: textarea
+              label: Introduction
+            header.introduce_background:
+              type: pagemediaselect
+              label: Introduction Background
+            header.cards:
+              type: list
+              label: Cards
+              fields:
+                .width:
+                  type: select
+                  label: UIkit Width (1-2 or 1-4)
+                  options:
+                    1-4: short
+                    1-2: long
+                .height:
+                  type: select
+                  label: Relative height (0.5, 1 or 2)
+                  options:
+                    0.5: double width
+                    1: square
+                    2: double height
+                .title_up:
+                  type: text
+                  label: Subtitle above title
+                .title:
+                  type: text
+                  label: Title
+                .title_down:
+                  type: text
+                  label: Subtitle below title
+                .title_large:
+                  type: text
+                  label: Large title
+                .text:
+                  type: textarea
+                  label: Text
+                .image:
+                  type: pagemediaselect
+                  label: Background Image
+                .background:
+                  type: text
+                  label: Background Class (uk-background, uk-cover-container, uk-background-secondary)
+
+
+
+

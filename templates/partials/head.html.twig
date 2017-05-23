@@ -1,0 +1,30 @@
+<title>{{ page.title|title }} - {{ site.title|title }}</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" href="{{ url('theme://img/favicon.png') }}">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Keyword" content="{{ site.metadata.keywords }}">
+<meta name="Description" content="{{ site.metadata.description }}">
+<meta name="Author" content="{{ site.metadata.author }}">
+
+{% block stylesheets %}
+    <!-- Google Font -->
+    {% do assets.addCss('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700') %}
+    <!-- UIkit --> 
+    {% do assets.addCss('theme://css/uikit.css') %}
+    <!-- File Icon -->
+    {% do assets.addCss('https://cdn.rawgit.com/konpa/devicon/4f6a4b08efdad6bb29f9cc801f5c07e263b39907/devicon.min.css') %}
+    <!-- Custom CSS --> 
+    {% do assets.addCss('theme://css/custom.css') %}
+{% endblock %}
+
+{{ assets.css() }}
+
+{% block javascripts %}
+    {% do assets.addJs('theme://js/jquery.min.js') %}
+    {% do assets.addJs('theme://js/uikit.min.js') %}
+    {% do assets.addJs('theme://js/uikit-icons.min.js') %}
+    {% do assets.addJs('theme://js/stupidtable.min.js') %}
+{% endblock %}
+
+{{ assets.js() }}

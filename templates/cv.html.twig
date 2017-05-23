@@ -1,0 +1,35 @@
+{% extends 'item.html.twig' %}
+{% block cv %}
+{% set grade = ['learning', 'basic', 'skilled', 'master', 'proficient'] %}
+<h2 class="uk-text-uppercase">technology stack</h2>
+{% if page.header.stack %}
+<div class="uk-flex uk-flex-left uk-flex-wrap">
+	{% for stack in page.header.stack %}
+	<div class="uk-width-1-4@s stack">
+        <div class="uk-text-uppercase line-height-narrow text-larger text-lighter">
+            <b>{{ stack.title }}</b><br>
+            {{ stack.subtitle }}
+        </div>
+        <p>
+        	{% for icon in stack.icon %}
+        	<i class="{{ icon }}"></i>
+        	{% endfor %}
+        </p>
+        <p class="uk-text-uppercase">
+        	{% for i in 1..5 %}
+        	{% if i > stack.grade %}
+        	<span class="uk-h4" style="color: #d4d4d4">
+        	{% else %}
+        	<span class="uk-h4" style="color: #555">
+        	{% endif %}
+        		&#9733
+        	</span>
+        	{% endfor %}
+        	<span class="uk-margin-small-left">{{ grade[stack.grade - 1] }}</span>
+        </p>
+        <p>{{ stack.detail }}</p>
+    </div>
+	{% endfor %}
+</div>
+{% endif %}
+{% endblock %}

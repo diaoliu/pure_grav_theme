@@ -1,0 +1,15 @@
+title: item
+'@extends':
+    type: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          fields: # customized fields here
+          	header.subtitle:
+          		type: text
+          		label: Subtitle
